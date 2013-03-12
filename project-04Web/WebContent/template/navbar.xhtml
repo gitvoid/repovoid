@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition>
+
+		<div class="span4">
+			<h:form>
+				<h3>navigate</h3>
+				<ul class="nav-stacked">
+					<li><h:commandLink action="/listquestionnaires"
+							value="list questionnaire" /></li>
+					<li><h:commandLink action="/addquestionnaire"
+							value="add questionnaire" /></li>
+					<li><h:commandLink action="/listusers" value="list users" /></li>
+					<li><h:commandLink action="/connectuser" value="list scores" /></li>
+				</ul>
+			</h:form>
+		</div>
+
+	</ui:composition>
+</body>
+</html>
+
+

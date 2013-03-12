@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="main">
+			<div class="span10">
+				<h:form>
+					<h:commandButton action="listquestionnaires" value="go back"
+						styleClass="btn" />
+					<br />
+					<h2>
+						<h:outputText value="add question" />
+					</h2>
+
+					<h:panelGrid columns="2" styleClass="zebra-striped">
+						<h:outputLabel value="indication:" for="questionIndic" />
+						<h:inputText id="questionIndic"
+							value="#{questionBacking.tQuestion.questionIndic}"
+							title="questionIndic" />
+						<h:outputLabel value="level:" for="questionLevel" />
+						<h:inputText id="questionLevel"
+							value="#{questionBacking.tQuestion.questionLevel}"
+							title="questionLevel" />
+						<h:outputLabel value="text:" for="questionText" />
+						<h:inputText id="questionText"
+							value="#{questionBacking.tQuestion.questionText}"
+							title="questionText" />
+						<h:outputLabel value="added since:" for="questionSince" />
+						<h:inputText id="questionSince"
+							value="#{questionBacking.tQuestion.questionSince}"
+							title="questionSince">
+							<f:convertDateTime pattern="MM/dd/yyyy" />
+						</h:inputText>
+						<h:commandButton type="reset" value="reset" styleClass="btn" />
+						<h:commandButton action="#{questionBacking.addQuestion()}"
+							value="add" styleClass="btn primary"></h:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

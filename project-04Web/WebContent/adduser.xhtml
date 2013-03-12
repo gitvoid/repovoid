@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<div class="page-header" style="margin-top: 60px">
+				<h1>
+					welcome guest,<small> register please</small>
+				</h1>
+			</div>
+		</ui:define>
+		<ui:define name="main">
+			<div class="span8">
+				<h2>fullfil this form</h2>
+				<f:view>
+					<h:form>
+						<h:panelGrid columns="2" styleClass="zebra-striped">
+							<h:outputLabel value="firstname:" for="userFirstname" />
+							<h:inputText id="userFirstname"
+								value="#{userBacking.tUser.userFirstname}" title="UserFirstname" />
+							<h:outputLabel value="lastname:" for="userLastname" />
+							<h:inputText id="userLastname"
+								value="#{userBacking.tUser.userLastname}" title="UserLastname" />
+							<h:outputLabel value="email:" for="userEmail" />
+							<h:inputText id="userEmail"
+								value="#{userBacking.tUser.userEmail}" title="UserEmail" />
+							<h:outputLabel value="login:" for="userLogin" />
+							<h:inputText id="userLogin"
+								value="#{userBacking.tUser.userLogin}" title="UserLogin" />
+							<h:outputLabel value="password:" for="userPassword" />
+							<h:inputText id="userPassword"
+								value="#{userBacking.tUser.userPassword}" title="UserPassword" />
+							<h:outputLabel value="birthday:" for="userSince" />
+							<h:inputText id="userSince"
+								value="#{userBacking.tUser.userSince}" title="UserSince">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:inputText>
+							<h:outputLabel value="haspower:" for="userIsmaster" />
+							<h:selectOneMenu id="userIsmaster"
+								value="#{userBacking.tUser.userIsmaster}"
+								styleClass="combobox-container">
+								<f:selectItem itemValue="1" itemLabel="yes" />
+								<f:selectItem itemValue="0" itemLabel="no" />
+							</h:selectOneMenu>
+							<h:commandButton action="#{userBacking.addUser()}"
+								value="register" styleClass="btn primary"></h:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</f:view>
+			</div>
+		</ui:define>
+		<ui:define name="navbar">
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

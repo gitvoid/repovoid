@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="navbar"></ui:define>
+		<ui:define name="main">
+			<div class="span16">
+				<h:form>
+					<h:commandButton action="welcomeuser" value="go back"
+						styleClass="btn" />
+					<br />
+					<h2>list questionnaire</h2>
+					<h:dataTable value="#{questionnaireBacking.listAllQuestionnaire()}"
+						var="item" styleClass="zebra-striped">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#" />
+							</f:facet>
+							<h:outputText value="#{item.questionnaireId}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="description" />
+							</f:facet>
+							<h:outputText value="#{item.questionnaireDesc}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="text" />
+							</f:facet>
+							<h:outputText value="#{item.questionnaireText}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="existing since" />
+							</f:facet>
+							<h:outputText value="#{item.questionnaireSince}">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="added by" />
+							</f:facet>
+							<h:outputText value="#{item.TUser.userLogin}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="some options" />
+							</f:facet>
+							<h:commandButton
+								action="#{questionnaireBacking.addQuestion(item.questionnaireId)}"
+								value="add question" styleClass="btn primary alternative " />
+							<h:commandButton
+								action="#{questionBacking.listQuestion(item.questionnaireId)}"
+								value="list question" styleClass="btn info alternative " />
+							<h:commandButton
+								action="#{questionBacking.passQuestion(item.questionnaireId)}"
+								value="pass" styleClass="btn success alternative " />
+							<h:commandButton action="reset" value="delete"
+								styleClass="btn danger alternative " />
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

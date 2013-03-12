@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="navbar"></ui:define>
+		<ui:define name="main">
+			<div class="span10">
+			<h:form>
+				<h:commandButton action="listquestions" value="go back"
+					styleClass="btn" />
+				<br />
+				<h2>
+					<h:outputText value="add reponse" />
+				</h2>
+				
+					<h:panelGrid columns="2" styleClass="zebra-striped">
+						<h:outputLabel value="rtext:" for="reponseText" />
+						<h:inputText id="reponseText"
+							value="#{reponseBacking.tReponse.reponseText}"
+							title="reponseText" />
+						<h:outputLabel value="points:" for="reponsePoints" />
+						<h:inputText id="reponsePoints"
+							value="#{reponseBacking.tReponse.reponsePoints}"
+							title="reponsePoints" />
+						<h:outputLabel value="iscorrect:" for="reponseIscorrect" />
+						<h:selectOneMenu id="reponseIscorrect"
+							value="#{reponseBacking.tReponse.reponseIscorrect}"
+							styleClass="combobox-container">
+							<f:selectItem itemValue="1" itemLabel="correct" />
+							<f:selectItem itemValue="0" itemLabel="fausse" />
+						</h:selectOneMenu>
+						<h:outputLabel value="added since:" for="reponseSince" />
+						<h:inputText id="reponseSince"
+							value="#{reponseBacking.tReponse.reponseSince}"
+							title="reponseSince">
+							<f:convertDateTime pattern="MM/dd/yyyy" />
+						</h:inputText>
+						<h:commandButton type="reset" value="reset" styleClass="btn"></h:commandButton>
+						<h:commandButton action="#{reponseBacking.addReponse()}"
+							value="add" styleClass="btn primary"></h:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

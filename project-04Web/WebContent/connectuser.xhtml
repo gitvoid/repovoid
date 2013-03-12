@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<div class="page-header" style="margin-top: 60px">
+				<h1>
+					welcome guest,<small> this is the home page</small>
+				</h1>
+			</div>
+		</ui:define>
+		<ui:define name="main">
+			<div class="span8">
+				<h2>connect</h2>
+				<h:form>
+					<h:panelGrid columns="2" styleClass="zebra-striped">
+						<h:outputLabel value="login:" for="userLogin" />
+						<h:inputText id="userLogin" value="#{userBacking.tUser.userLogin}"
+							title="UserLogin" />
+						<h:outputLabel value="password:" for="userPassword" />
+						<h:inputSecret id="userPassword"
+							value="#{userBacking.tUser.userPassword}" title="UserPassword" />
+						<h:commandLink action="adduser"
+							value="not a member yet, register." />
+						<h:commandButton action="#{userBacking.connectUser()}"
+							value="connect" styleClass="btn primary icon alternative search"></h:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</ui:define>
+		<ui:define name="navbar">
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

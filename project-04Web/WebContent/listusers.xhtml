@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+			<h1>
+				<h:outputText value="List" />
+			</h1>
+			<h:dataTable value="#{userBacking.listAllUsers()}" var="item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserId" />
+					</f:facet>
+					<h:outputText value="#{item.userId}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserFirstname" />
+					</f:facet>
+					<h:outputText value="#{item.userFirstname}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserLastname" />
+					</f:facet>
+					<h:outputText value="#{item.userLastname}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserEmail" />
+					</f:facet>
+					<h:outputText value="#{item.userEmail}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserLogin" />
+					</f:facet>
+					<h:outputText value="#{item.userLogin}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserPassword" />
+					</f:facet>
+					<h:outputText value="#{item.userPassword}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserSince" />
+					</f:facet>
+					<h:outputText value="#{item.userSince}">
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="UserIsmaster" />
+					</f:facet>
+					<h:outputText value="#{item.userIsmaster}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</f:view>
+
+</h:body>
+</html>
+

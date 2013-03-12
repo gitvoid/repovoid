@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="navbar"></ui:define>
+		<ui:define name="main">
+			<div class="span10">
+				<h:form>
+					<h:commandButton action="listquestions" value="go back"
+						styleClass="btn" />
+					<br />
+					<h2>
+						<h:outputText value="list reponse" />
+					</h2>
+					<h:dataTable value="#{reponseBacking.listReponseByIdQuestion()}"
+						var="item" styleClass="zebra-striped">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#" />
+							</f:facet>
+							<h:outputText value="#{item.reponseId}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="text" />
+							</f:facet>
+							<h:outputText value="#{item.reponseText}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="isconnrect" />
+							</f:facet>
+							<h:outputText value="#{item.reponseIscorrect}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="points" />
+							</f:facet>
+							<h:outputText value="#{item.reponsePoints}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="some options" />
+							</f:facet>
+							<h:commandButton action="reset" value="update"
+								styleClass="btn primary" />
+							<h:commandButton action="reset" value="delete"
+								styleClass="btn danger" />
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
