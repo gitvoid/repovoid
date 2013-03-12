@@ -1,3 +1,3 @@
 repovoid
 ========
-EJB JSF JPA JTA CDI exemple
+EJB JSF JPA JTA CDI exemple using eclipse
